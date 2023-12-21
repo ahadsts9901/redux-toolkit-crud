@@ -40,13 +40,16 @@ function AddTodo() {
   }
 
   return (
-    <form onSubmit={addTodoHandler}>
+    <form onSubmit={addTodoHandler} className='flex flex-col justify-start items-center gap-[1em]'>
       <input
         type="text"
         placeholder="Enter Title..."
         ref={titleRef}
       />
-      <textarea ref={textRef} placeholder='Enter Text'></textarea>
+      <textarea
+        ref={textRef}
+        placeholder='Enter Text'>
+      </textarea>
       <div>
         <button
           type="submit"

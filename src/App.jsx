@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <h1>Redux Toolkit CRUD</h1>
+      <h1 className='text-[2em] text-center font-bold pt-[1em]'>Redux Toolkit CRUD</h1>
       <AddTodo />
       <Todos />
     </>
