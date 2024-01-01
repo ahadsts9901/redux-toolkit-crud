@@ -108,17 +108,21 @@ function Todos() {
   return (
     <>
       <div className='posts w-[80%] h-[100%] flex flex-wrap justify-center items-start gap-[1em]'>
-        {todos.map((todo) => (
-          <div key={todo.id} className='w-[15em] h-[15em] flex flex-col gap-[1em] p-[1em] border-[2px] border-[#f0f1f4] bg-[#1e1e1e] rounded-[10px]'>
-            <h2 className='h-[1.5em] postHeading text-[1.8em] w-[100%] text-left text-[#8361be] font-bold'>{todo.title}</h2>
-            <p className='postText text-[#f0f1f4] text-[0.9em] text-left w-[100%] h-[5em]'>{todo.text}</p>
-            <div className='flex justify-end items-center w-[100%] gap-[0.7em]'>
-              <button onClick={() => delTodo(todo.id)} className='bg-[#8361be] text-[#f0f1f4] rounded-[3px] p-[0.3em] text-center w-[5em] text-[0.7em]' >Delete</button>
-              <button onClick={(event) => editTodo(event, todo.id)} className='bg-[#8361be] text-[#f0f1f4] rounded-[3px] p-[0.3em] text-center w-[5em] text-[0.7em]' >Edit</button>
-            </div>
-            <p className='text-[0.7em] text-[#f0f1f4] w-[100%] text-right'>{moment(todo.time).fromNow()}</p>
-          </div>
-        ))}
+        {
+          todos.length > 0 ?
+            todos.map((todo) => (
+              <div key={todo.id} className='w-[15em] h-[15em] flex flex-col gap-[1em] p-[1em] border-[2px] border-[#f0f1f4] bg-[#1e1e1e] rounded-[10px]'>
+                <h2 className='h-[1.5em] postHeading text-[1.8em] w-[100%] text-left text-[#8361be] font-bold'>{todo.title}</h2>
+                <p className='postText text-[#f0f1f4] text-[0.9em] text-left w-[100%] h-[5em]'>{todo.text}</p>
+                <div className='flex justify-end items-center w-[100%] gap-[0.7em]'>
+                  <button onClick={() => delTodo(todo.id)} className='bg-[#8361be] text-[#f0f1f4] rounded-[3px] p-[0.3em] text-center w-[5em] text-[0.7em]' >Delete</button>
+                  <button onClick={(event) => editTodo(event, todo.id)} className='bg-[#8361be] text-[#f0f1f4] rounded-[3px] p-[0.3em] text-center w-[5em] text-[0.7em]' >Edit</button>
+                </div>
+                <p className='text-[0.7em] text-[#f0f1f4] w-[100%] text-right'>{moment(todo.time).fromNow()}</p>
+              </div>
+            )) : 
+            <h1 className='w-[100%] text-center m-[auto] text-[#f0f1f4] text-[2em] font-bold'>No Post Found...</h1>
+        }
       </div>
     </>
   )
