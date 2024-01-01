@@ -15,11 +15,13 @@ function AddTodo() {
     e.preventDefault()
 
     if (titleRef.current.value.trim() === "" || textRef.current.value.trim() === "") {
-      setMessage("Title and Text are required")
       return
     }
 
-    dispatch(addTodo(titleRef.current.value, textRef.current.value))
+    dispatch(addTodo({
+      title: titleRef.current.value,
+      text: textRef.current.value
+    }))
 
     // sweet alert toast
     const Toast = Swal.mixin({
@@ -37,26 +39,31 @@ function AddTodo() {
       title: "Post Added"
     });
 
+    e.target.reset()
+
   }
 
   return (
-    <form onSubmit={addTodoHandler} className='flex flex-col justify-start items-center gap-[1em]'>
+    <form onSubmit={addTodoHandler} className='flex flex-col justify-start items-center gap-[1em] w-[100%]'>
       <input
         type="text"
         placeholder="Enter Title..."
         ref={titleRef}
+        className='w-[80%] p-[0.5em] rounded-[3px] border-[1px]'
       />
       <textarea
         ref={textRef}
-        placeholder='Enter Text'>
+        placeholder='Enter Text...'
+        className='w-[80%] p-[0.5em] rounded-[3px] border-[1px]'
+      >
       </textarea>
-      <div>
+      <div className='w-[80%]'>
         <button
           type="submit"
+          className='rounded-[3px] bg-[#8361be] text-[#f0f1f4] font-bold p-[0.5em] w-[5em]'
         >
           Post
         </button>
-        <p>{message}</p>
       </div>
     </form>
   )

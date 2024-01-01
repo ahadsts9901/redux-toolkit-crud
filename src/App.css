@@ -12,9 +12,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #1b1b1b;
 }
 
-#root{
+#root {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -23,4 +24,99 @@ body {
   padding: 1em;
   width: 100%;
   height: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+.posts {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.postHeading {
+  overflow-x: auto;
+}
+
+.postHeading::-moz-scrollbar {
+  display: none;
+}
+
+.postHeading::-webkit-scrollbar {
+  display: none;
+}
+
+.postText {
+  overflow: auto;
+}
+
+#editTitle,
+#editText {
+  width: 90% !important;
+  margin: 0 !important;
+  margin-top: 2em !important;
+  border: 1px solid #1b1b1b !important;
+  padding: 0.6em !important;
+  border-radius: 0 !important;
+  font-size: 1em !important;
+}
+
+#editText{
+  height: 10em!important;
+}
+
+/* scrollbars */
+
+::-moz-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+  background-color: #00000000;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+  background-color: #00000000;
+}
+
+::-moz-scrollbar-thumb {
+  width: 8px !important;
+  border-radius: 10px;
+  background-color: #8361be;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 8px !important;
+  border-radius: 10px;
+  background-color: #8361be;
+  border: none;
+}
+
+::-moz-scrollbar-track,
+::-webkit-scrollbar-track {
+  background-color: #00000000;
+  border: none;
+}
+
+/* sweet alert */
+
+.swal2-confirm:focus,
+.swal2-deny:focus,
+.swal2-cancel:focus,
+.swal2-input:focus {
+  box-shadow: 0 0 0 !important;
+}
+
+.swal2-input {
+  border: 0 !important;
+}
+
+div:where(.swal2-container) div:where(.swal2-loader) {
+  border-color: #000 #fff !important;
+}
+
+::placeholder{
+  color: #888!important;
 }
